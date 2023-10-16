@@ -121,6 +121,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
         }
       })
     );
+    console.log('JupyterLab extension jupyterlab-indent-guides is activated!');
   }
 };
 
