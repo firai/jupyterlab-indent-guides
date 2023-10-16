@@ -1,6 +1,8 @@
 # jupyterlab-indent-guides
 
-[![Github Actions Status](https://github.com/firai/jupyterlab-indent-guides/workflows/Build/badge.svg)](https://github.com/firai/jupyterlab-indent-guides/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/firai/jupyterlab-indent-guides/main?urlpath=lab)
+[![Github Actions Status](https://github.com/firai/jupyterlab-indent-guides/workflows/Build/badge.svg)](https://github.com/firai/jupyterlab-indent-guides/actions/workflows/build.yml)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/firai/jupyterlab-indent-guides/main?urlpath=lab)
+[![PyPI](https://img.shields.io/pypi/v/jupyterlab-indent-guides)](https://pypi.org/project/jupyterlab-indent-guides)
 
 Indentation guides for JupyterLab
 
