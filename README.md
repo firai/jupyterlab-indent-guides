@@ -6,12 +6,6 @@ Indentation guides for JupyterLab
 
 ![Demo](demo.png)
 
-## Settings
-
-Settings for the extension can be customized in the `Notebook` page of the Settings Editor, below the `Theme` setting.
-
-![Settings](settings.png)
-
 ## Requirements
 
 - JupyterLab >= 4.0.0
@@ -31,6 +25,12 @@ To remove the extension, execute:
 ```bash
 pip uninstall jupyterlab-indent-guides
 ```
+
+## Settings
+
+Settings for the extension can be customized in the `Notebook` page of the Settings Editor, below the `Theme` setting.
+
+![Settings](settings.png)
 
 ## Contributing
 
