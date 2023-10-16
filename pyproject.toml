@@ -32,24 +32,24 @@ source = "nodejs"
 fields = ["description", "authors", "urls"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyterlab-indent-guides/labextension"]
+artifacts = ["jupyterlab_indent_guides/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyterlab-indent-guides/labextension" = "share/jupyter/labextensions/jupyterlab-indent-guides"
+"jupyterlab_indent_guides/labextension" = "share/jupyter/labextensions/jupyterlab-indent-guides"
 "install.json" = "share/jupyter/labextensions/jupyterlab-indent-guides/install.json"
 
 [tool.hatch.build.hooks.version]
-path = "jupyterlab-indent-guides/_version.py"
+path = "jupyterlab_indent_guides/_version.py"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "jupyterlab-indent-guides/labextension/static/style.js",
-    "jupyterlab-indent-guides/labextension/package.json",
+    "jupyterlab_indent_guides/labextension/static/style.js",
+    "jupyterlab_indent_guides/labextension/package.json",
 ]
-skip-if-exists = ["jupyterlab-indent-guides/labextension/static/style.js"]
+skip-if-exists = ["jupyterlab_indent_guides/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -59,7 +59,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "jupyterlab-indent-guides/labextension"
+build_dir = "jupyterlab_indent_guides/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"

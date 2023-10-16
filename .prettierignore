@@ -3,4 +3,4 @@ node_modules
 **/lib
 **/package.json
 !/package.json
-jupyterlab-indent-guides
+jupyterlab_indent_guides

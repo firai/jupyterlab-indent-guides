@@ -38,7 +38,7 @@
         "clean": "jlpm clean:lib",
         "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
         "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-        "clean:labextension": "rimraf jupyterlab-indent-guides/labextension jupyterlab-indent-guides/_version.py",
+        "clean:labextension": "rimraf jupyterlab_indent_guides/labextension jupyterlab_indent_guides/_version.py",
         "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
         "eslint": "jlpm eslint:check --fix",
         "eslint:check": "eslint . --cache --ext .ts,.tsx",
@@ -56,11 +56,8 @@
         "watch:labextension": "jupyter labextension watch ."
     },
     "dependencies": {
-        "@codemirror/state": "^6.0.0",
-        "@codemirror/view": "^6.0.0",
         "@jupyterlab/application": "^4.0.0",
         "@jupyterlab/codemirror": "^4.0.0",
-        "@jupyterlab/settingregistry": "^4.0.0",
         "@replit/codemirror-indentation-markers": "^6.5.0"
     },
     "devDependencies": {
@@ -100,7 +97,7 @@
     },
     "jupyterlab": {
         "extension": true,
-        "outputDir": "jupyterlab-indent-guides/labextension"
+        "outputDir": "jupyterlab_indent_guides/labextension"
     },
     "eslintIgnore": [
         "node_modules",
