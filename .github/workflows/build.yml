@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: extension-artifacts
-        path: dist/jupyterlab-indent-guides*
+        path: dist/jupyterlab_indent_guides*
         if-no-files-found: error
 
   test_isolated:
