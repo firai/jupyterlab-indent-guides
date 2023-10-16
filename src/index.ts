@@ -8,9 +8,15 @@ import {
   EditorExtensionRegistry
 } from '@jupyterlab/codemirror';
 
-import { ISettingRegistry } from '@jupyterlab/settingregistry';
-
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
+
+interface IGuideTypeDict {
+  [index: string]: 'fullScope' | 'codeOnly';
+}
+const guideTypeMap = {
+  'Full scope': 'fullScope' as const,
+  'Code only': 'codeOnly' as const
+} as IGuideTypeDict;
 
 /**
  * Initialization data for the jupyterlab-indent-guides extension.
@@ -20,19 +26,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
   description: 'Indentation guides for JupyterLab',
   autoStart: true,
   requires: [IEditorExtensionRegistry],
-  optional: [ISettingRegistry],
-  activate: (
-    app: JupyterFrontEnd,
-    extensions: IEditorExtensionRegistry,
-    settingRegistry: ISettingRegistry | null
-  ) => {
+  activate: (app: JupyterFrontEnd, extensions: IEditorExtensionRegistry) => {
     extensions.addExtension(
       Object.freeze({
         name: 'indent-guides',
         default: {
           highlightActiveBlock: true,
           hideFirstIndent: false,
-          guideType: 'fullScope' as const,
+          guideType: 'Full scope',
           thickness: 1,
           colors: {
             light: '#bdbdbd',
@@ -46,7 +47,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
             (indentGuideOptions: {
               highlightActiveBlock: boolean;
               hideFirstIndent: boolean;
-              guideType: 'fullScope' | 'codeOnly' | undefined;
+              guideType: string;
               thickness: number;
               colors: {
                 light: string;
@@ -58,7 +59,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
               indentationMarkers({
                 highlightActiveBlock: indentGuideOptions.highlightActiveBlock,
                 hideFirstIndent: indentGuideOptions.hideFirstIndent,
-                markerType: indentGuideOptions.guideType,
+                markerType: guideTypeMap[indentGuideOptions.guideType],
                 thickness: indentGuideOptions.thickness,
                 colors: {
                   light: indentGuideOptions.colors.light,
@@ -72,33 +73,54 @@ const plugin: JupyterFrontEndPlugin<void> = {
           type: 'object',
           title: 'Indent guide options',
           properties: {
+            highlightActiveBlock: {
+              type: 'boolean',
+              title: 'Highlight active block'
+            },
+            hideFirstIndent: {
+              type: 'boolean',
+              title: 'Hide guide for first indentation level'
+            },
+            guideType: {
+              title: 'Guide type',
+              enum: ['Full scope', 'Code only']
+            },
             thickness: {
               type: 'number',
-              title: 'Thickness',
-              default: 1
+              title: 'Thickness'
+            },
+            colors: {
+              title: 'Colors',
+              type: 'object',
+              properties: {
+                light: {
+                  type: 'string',
+                  title: 'Light theme typical guide color',
+                  description: 'Color of typical guides for light themes'
+                },
+                activeLight: {
+                  type: 'string',
+                  title: 'Light theme active block guide color',
+                  description:
+                    'Color of guides for the active block for light themes'
+                },
+                dark: {
+                  type: 'string',
+                  title: 'Dark theme typical guide color',
+                  description: 'Color of typical guides for dark themes'
+                },
+                activeDark: {
+                  type: 'string',
+                  title: 'Dark theme active block guide color',
+                  description:
+                    'Color of guides for the active block for dark themes'
+                }
+              }
             }
           }
         }
       })
     );
-    console.log('JupyterLab extension jupyterlab-indent-guides is activated!');
-
-    if (settingRegistry) {
-      settingRegistry
-        .load(plugin.id)
-        .then(settings => {
-          console.log(
-            'jupyterlab-indent-guides settings loaded:',
-            settings.composite
-          );
-        })
-        .catch(reason => {
-          console.error(
-            'Failed to load settings for jupyterlab-indent-guides.',
-            reason
-          );
-        });
-    }
   }
 };
 
