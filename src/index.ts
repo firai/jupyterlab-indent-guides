@@ -10,13 +10,13 @@ import {
 
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 
-interface IGuideTypeDict {
+interface IGuideExtentMapDict {
   [index: string]: 'fullScope' | 'codeOnly';
 }
-const guideTypeMap = {
+const guideExtentMap = {
   'Full scope': 'fullScope' as const,
   'Code only': 'codeOnly' as const
-} as IGuideTypeDict;
+} as IGuideExtentMapDict;
 
 /**
  * Initialization data for the jupyterlab-indent-guides extension.
@@ -33,7 +33,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
         default: {
           highlightActiveBlock: true,
           hideFirstIndent: false,
-          guideType: 'Full scope',
+          guideExtent: 'Full scope',
           thickness: 1,
           colors: {
             light: '#bdbdbd',
@@ -47,7 +47,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
             (indentGuideOptions: {
               highlightActiveBlock: boolean;
               hideFirstIndent: boolean;
-              guideType: string;
+              guideExtent: string;
               thickness: number;
               colors: {
                 light: string;
@@ -59,7 +59,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
               indentationMarkers({
                 highlightActiveBlock: indentGuideOptions.highlightActiveBlock,
                 hideFirstIndent: indentGuideOptions.hideFirstIndent,
-                markerType: guideTypeMap[indentGuideOptions.guideType],
+                markerType: guideExtentMap[indentGuideOptions.guideExtent],
                 thickness: indentGuideOptions.thickness,
                 colors: {
                   light: indentGuideOptions.colors.light,
@@ -75,15 +75,19 @@ const plugin: JupyterFrontEndPlugin<void> = {
           properties: {
             highlightActiveBlock: {
               type: 'boolean',
-              title: 'Highlight active block'
+              title: 'Highlight active block',
+              description:
+                'Use a different color for guide in the active block. Change the active block guide colors below. Disabling provides a performance enhancement, because guides do not need to be regenerated when the selection changes.'
             },
             hideFirstIndent: {
               type: 'boolean',
-              title: 'Hide guide for first indentation level'
+              title: 'Hide guide at the first column'
             },
-            guideType: {
-              title: 'Guide type',
-              enum: ['Full scope', 'Code only']
+            guideExtent: {
+              title: 'Guide extent',
+              enum: ['Full scope', 'Code only'],
+              description:
+                'How far the indentation guides extend. "Full scope" means guides extend down the full height of a scope. "Code only" means guides terminate at the last nonempty line in a scope.'
             },
             thickness: {
               type: 'number',
