@@ -75,7 +75,7 @@ jobs:
         sudo rm -rf $(which node)
         sudo rm -rf $(which node)
 
-        pip install "jupyterlab>=4.0.0,<5" jupyterlab-indent-guides*.whl
+        pip install "jupyterlab>=4.0.0,<5" jupyterlab_indent_guides*.whl
 
 
         jupyter labextension list
@@ -105,7 +105,7 @@ jobs:
     - name: Install the extension
       run: |
         set -eux
-        python -m pip install "jupyterlab>=4.0.0,<5" jupyterlab-indent-guides*.whl
+        python -m pip install "jupyterlab>=4.0.0,<5" jupyterlab_indent_guides*.whl
 
     - name: Install dependencies
       working-directory: ui-tests
