@@ -87,7 +87,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
               title: 'Guide extent',
               enum: ['Full scope', 'Code only'],
               description:
-                'How far the indentation guides extend. "Full scope" means guides extend down the full height of a scope. "Code only" means guides terminate at the last nonempty line in a scope.'
+                'How far the indentation guides extend. "Full scope" means guides extend down the full height of a scope. "Code only" means guides terminate at the last non-empty line in a scope.'
             },
             thickness: {
               type: 'number',
