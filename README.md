@@ -30,7 +30,14 @@ pip uninstall jupyterlab-indent-guides
 
 ## Settings
 
-Settings for the extension can be customized in the `Notebook` page of the Settings Editor, below the `Theme` setting.
+Settings for the extension can be found the following locations in the _Settings Editor_:
+
+- Default for all editor types below – _CodeMirror_ page.
+- Notebooks – _Notebook_ page, with separate settings for code cells, markdown cells and raw cells under the respective sections.
+- File editors – _Text Editor_ page.
+- Code consoles – _Code Console_ page.
+
+If no other CodeMirror extensions are installed, the `jupyterlab-indent-guide` settings are located below the _Theme_ setting in the respective settings pages listed above.
 
 ![Settings](settings.png)
 
