@@ -6,7 +6,7 @@
 
 Indentation guides for JupyterLab
 
-![Demo](demo.png)
+![Demo](https://raw.githubusercontent.com/firai/jupyterlab-indent-guides/main/doc/demo.png)
 
 ## Requirements
 
