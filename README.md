@@ -39,7 +39,7 @@ Settings for the extension can be found the following locations in the _Settings
 
 If no other CodeMirror extensions are installed, the `jupyterlab-indent-guide` settings are located below the _Theme_ setting in the respective settings pages listed above.
 
-![Settings](settings.png)
+![Settings](https://raw.githubusercontent.com/firai/jupyterlab-indent-guides/main/doc/settings.png)
 
 ## Contributing
 
