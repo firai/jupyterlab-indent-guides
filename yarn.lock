@@ -3026,14 +3026,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@replit/codemirror-indentation-markers@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@replit/codemirror-indentation-markers@npm:6.5.0"
+"@replit/codemirror-indentation-markers@npm:^6.5.3":
+  version: 6.5.3
+  resolution: "@replit/codemirror-indentation-markers@npm:6.5.3"
   peerDependencies:
     "@codemirror/language": ^6.0.0
     "@codemirror/state": ^6.0.0
     "@codemirror/view": ^6.0.0
-  checksum: 8eec2ee07e3247438b058d7193526c54591aaa98ed17a6802fa9021d1d0ff07c9d817a11772ed0029ae9b1cc028c9581f59010f826e877943c62e766c1a840b8
+  checksum: 7e9e22968f8935cede53bb8cf68702ff12d2b6439c4541e174c78f69bb62eaf89bd09284944a5590eb61938c90899963cc7204f12b7f0a5f1f2bc1a3da0ee717
   languageName: node
   linkType: hard
 
@@ -7187,7 +7187,7 @@ __metadata:
     "@jupyterlab/builder": ^4.0.0
     "@jupyterlab/codemirror": ^4.0.0
     "@jupyterlab/testutils": ^4.0.0
-    "@replit/codemirror-indentation-markers": ^6.5.0
+    "@replit/codemirror-indentation-markers": ^6.5.3
     "@types/jest": ^29.2.0
     "@types/json-schema": ^7.0.11
     "@types/react": ^18.0.26
