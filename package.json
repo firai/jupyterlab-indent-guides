@@ -61,7 +61,7 @@
         "@codemirror/view": "^6.0.0",
         "@jupyterlab/application": "^4.0.0",
         "@jupyterlab/codemirror": "^4.0.0",
-        "@replit/codemirror-indentation-markers": "^6.5.0"
+        "@replit/codemirror-indentation-markers": "^6.5.3"
     },
     "devDependencies": {
         "@jupyterlab/builder": "^4.0.0",
